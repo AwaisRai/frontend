@@ -1,0 +1,145 @@
+/* font-family: 'Hind', sans-serif; */
+/* font-family: 'Roboto', sans-serif; */
+body {
+    background-color: #F9F9F9;
+    font-family: 'Roboto', sans-serif;
+    color: #191919;
+}
+.navbar{
+  padding: 15px;
+  margin-bottom: 0;
+}
+a.nav-link {
+    font-size: 17px !important;
+    color: #5617E0 !important;
+}
+a.navbar-brand {
+    padding: 0 !important;
+    margin: 0 !important;
+    bottom: 3px;
+}
+.main{
+  background: none;
+}
+.heading-1{
+  color: #5617E0;
+  font-family: 'Hind', sans-serif;
+  font-weight: bold;
+  font-size: 50px;
+}
+.form-control, .is-focused .form-control{
+  background-image: linear-gradient(to top,#9c27b0 2px,rgba(156,39,176,0) 2px),linear-gradient(to top,#a4a4a4 1px,rgba(210,210,210,0) 3px);
+}
+.form-group:focus-within label{
+  color: #5617E0;
+}
+#logo-preview{
+  margin-top: 5px;
+  margin-right: 28px;
+}
+#logo-preview img{
+  height: 43px;
+}
+#logo-preview p{
+  font-size: 12px;
+  font-style: italic;
+  position: absolute;
+}
+tags-input .tags{
+  padding: 5px;
+  min-height: 100px;
+  box-shadow: none;
+  border: none;
+  /* background-image: linear-gradient(to top,#9c27b0 2px,rgba(156,39,176,0) 2px),linear-gradient(to top,#a4a4a4 1px,rgba(210,210,210,0) 3px); */
+  background-image: linear-gradient(to top,#a4a4a4 1px,rgba(210,210,210,0) 3px),linear-gradient(to bottom,#a4a4a4 1px,rgba(210,210,210,0) 3px),linear-gradient(to left,#a4a4a4 1px,rgba(210,210,210,0) 3px),linear-gradient(to right,#a4a4a4 1px,rgba(210,210,210,0) 3px);
+}
+tags-input .tags.focused{
+  box-shadow: none;
+  border:none;
+  background-image: linear-gradient(to top,#9c27b0 2px,rgba(156,39,176,0) 2px),linear-gradient(to bottom,#a4a4a4 1px,rgba(210,210,210,0) 3px),linear-gradient(to left,#a4a4a4 1px,rgba(210,210,210,0) 3px),linear-gradient(to right,#a4a4a4 1px,rgba(210,210,210,0) 3px);
+}
+tags-input .tags .tag-item{
+  background: #0000ad;
+  color: #fff;
+}
+.btn.btn-primary.focus, .btn.btn-primary:focus, .btn.btn-primary:hover, .btn.btn-primary{
+  background: #5617E0;
+}
+a {
+  color: #5617e0;
+}
+.fq-check{
+  top:20px;
+}
+.btn.btn-round.btn-danger {
+    background: #e01717;
+}
+.btn.btn-lg {
+    font-size: 25px;
+    text-transform: inherit;
+}
+.btn-lg i.material-icons {
+    font-size: 50px;
+}
+footer{
+  padding: 5px;
+}
+footer .copyright {
+    padding-top: 10px;
+    padding-bottom: 20px;
+    font-size: 18px;
+    font-weight: 400;
+}
+tags-input .tags .tag-item .remove-button{
+  color: #fafafa;
+}
+.coution{
+    font-size: 18px;
+    font-weight: 400;
+}
+/* Margins start */
+.mt-50 {
+  margin-top: 50px;
+}
+.mb-10{
+  margin-bottom: 10px;
+}
+p.field-coution{
+  font-weight: 400;
+  font-style: italic;
+}
+/* Margins end */
+
+/* angular-file-upload css start */
+.my-drop-zone { border: dotted 3px lightgray; }
+.nv-file-over { border: dotted 3px red; } /* Default class applied to drop zones on over */
+.another-file-over-class { border: dotted 3px green; }
+
+canvas {
+    background-color: #f3f3f3;
+    -webkit-box-shadow: 3px 3px 3px 0 #e3e3e3;
+    -moz-box-shadow: 3px 3px 3px 0 #e3e3e3;
+    box-shadow: 3px 3px 3px 0 #e3e3e3;
+    border: 1px solid #c3c3c3;
+    height: 50px;
+}
+#logo-upload{
+  height: 41px;
+}
+.form-control:invalid {
+  background-image: linear-gradient(to top,#9c27b0 2px,rgba(156,39,176,0) 2px),linear-gradient(to top,#a4a4a4 1px,rgba(210,210,210,0) 3px);
+}
+div [ng-message] {
+    color: #e03831;
+    font-size: 13px;
+    position: absolute;
+}
+.error-msg{
+  color: #e03831;
+  font-size: 13px;
+  position: absolute;
+}
+.relative{
+  position: relative;
+}
+/* angular-file-uplaod css end */

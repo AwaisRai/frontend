@@ -1,0 +1,193 @@
+<div class="alert alert-success" ng-show="main.success_msg" >
+  <div class="container">
+    <div class="alert-icon">
+      <i class="material-icons">check</i>
+    </div>
+    <button type="button" class="close"  aria-label="Close" ng-click="main.success_msg = false;">
+      <span aria-hidden="true"><i class="material-icons">clear</i></span>
+    </button>
+    <b>Success Alert:</b> Organization created successfully!
+  </div>
+</div>
+<div class="alert alert-danger"  ng-show="main.error_msg">
+  <div class="container">
+    <div class="alert-icon">
+      <i class="material-icons">error_outline</i>
+    </div>
+    <button type="button" class="close" aria-label="Close" ng-click="main.error_msg = false;">
+      <span aria-hidden="true"><i class="material-icons">clear</i></span>
+    </button>
+    <b>Error Alert:</b> Something goes wrong!
+  </div>
+</div>
+
+<div class="main">
+  <div class="container">
+    <div class="row ">
+      <h2 class="heading-1 ml-auto mr-auto mt-50">CREATE ORGANIZATION</h2>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <p class="coution">Please add the details for organization in the following form.</p>
+      </div>
+    </div>
+      <form name='org_form' novalidate ng-submit="main.submitted=true; main.org.skills.length > 0 && org_form.$valid && main.save(org_form)" >
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="org-name">Organization Name</label>
+              <input ng-model="main.org.name" type="text" class="form-control"  id="org-name" name="org_name" aria-describedby="org-name" placeholder="Add organization name here" required >
+              <div ng-messages="org_form.org_name.$error" role="alert" ng-if="main.submitted || org_form.org_name.$dirty" >
+                <div ng-message="required">Please enter a value for this field.</div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group form-file-upload form-file-multiple">
+              <input type="file" multiple="" class="inputFileHidden">
+              <div class="input-group">
+                <div id="logo-preview">
+                  <img src="assets/images/logo-preview.svg" alt="logo-preview" ng-hide="main.uploader.queue.length" >
+                  <p ng-hide="main.uploader.queue.length">Maximum Height = 50</p>
+                  <div ng-repeat="item in main.uploader.queue" ng-show="main.uploader.queue.length && main.uploader.isHTML5" ng-thumb="{ file: item._file, height: 100 }"></div>
+                </div>
+
+                <button type="button" class="btn  btn-round btn-primary" ng-click="main.chooseLogo()" id="logo-upload">
+                  <i class="material-icons">cloud_upload</i> Upload Logo
+                </button>
+                <input type="file" id="chooseLogo" nv-file-select uploader="main.uploader" ng-hide="true" name="logo" required ><br>
+              </div>
+              <div ng-if="main.submitted && main.uploader.queue.length < 1" >
+                <div class="error-msg" style="left:185px;">Please select upload logo.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="org-address">Address</label>
+              <input ng-model="main.org.address" type="text" class="form-control" id="org-address" name="org_address" aria-describedby="org-address" placeholder="Add organization location here" required >
+              <div ng-messages="org_form.org_address.$error" role="alert" ng-if="main.submitted || org_form.org_address.$dirty" >
+                <div ng-message="required">Please enter address in this field.</div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="org-country">Country</label>
+              <input ng-model="main.org.country" type="text" class="form-control" id="org-country" name="org_country" aria-describedby="org-country" placeholder="Add organization country here" required >
+              <div ng-messages="org_form.org_country.$error" role="alert" ng-if="main.submitted || org_form.org_country.$dirty" >
+                <div ng-message="required">Please enter country in this field.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="org-website">Website</label>
+                  <input ng-model="main.org.website" type="text" class="form-control" id="org-website" name="org_website" aria-describedby="org-website" placeholder="Add organization website here"  >
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="org-email">Email</label>
+                  <input ng-model="main.org.email" type="email" class="form-control" id="org-email" name="org_email" aria-describedby="org-email" placeholder="Add organization email here" required >
+                  <div ng-messages="org_form.org_email.$error" role="alert" ng-if="main.submitted || org_form.org_email.$dirty" >
+                    <div ng-message="required">Please enter an email in this field.</div>
+                    <div ng-message="email">Please enter valide email.</div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <br>
+        <div class="row">
+            <div class="col-md-12 mt-2">
+              <div class="form-group">
+                <label>Technical Skills</label>
+                <tags-input ng-model="main.org.skills" placeholder="Add skills here">
+                </tags-input>
+                <p class="field-coution">This is a case sensitive text box. Add a comma to separate items.</p>
+                <div ng-if="main.submitted && main.org.skills.length < 1" >
+                  <div class="error-msg">Please enter skills in this field.</div>
+                </div>
+              </div>
+            </div>
+        </div>
+
+        <br>
+        <div class="row">
+          <div class="col-md-6 mt-2">
+            <div class="form-group">
+              <label for="org-name">Upload CSV File</label><br>
+              <button type="button" class="btn  btn-round btn-primary">
+                <i class="material-icons">group_add</i> Upload CSV
+              </button>
+              <p>Select the prepared csv file. Check out the <a href="#">template-file.csv</a> for reference.</p>
+            </div>
+          </div>
+        </div>
+
+        <br>
+        <div class="row mt-2" ng-repeat="question in main.org.questions">
+          <div class="col-md-7">
+            <div class="form-group" ng-class="$index == main.org.questions.length - 1 ? 'mb-10':''">
+              <label for="org-free-form-{{$index+1}}">Free form Question {{$index+1}}</label>
+                <input ng-model="question.text" type="text" class="form-control" id="org-free-form-{{$index+1}}" name="q_{{$index+1}}" aria-describedby="org-free-form-{{$index+1}}" placeholder="Add a free form question for this organization here" required >
+                <div class="error-msg"  ng-show="main.submitted || isValidQuestion($index)" ng-class="$index == main.org.questions.length - 1 ? 'relative':''">
+                  Please enter an question in this field.
+                </div>
+            </div>
+          </div>
+          <div class="col-md-1 p-1" >
+            <div class="form-check fq-check">
+              <label class="form-check-label">
+                  <input ng-model="question.checked" class="form-check-input" type="checkbox" value="">
+                  <span class="form-check-sign">
+                      <span class="check"></span>
+                  </span>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <button type="button" class="btn  btn-round btn-primary" ng-click="main.addQuestion()">
+          <i class="material-icons">add_circle</i> Add Question
+        </button>
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;
+        <button type="button" class="btn  btn-round btn-danger" ng-click="main.delQuestions()">
+          <i class="material-icons">add_circle</i> Delete Selected
+        </button>
+
+        <p class="mt-5 coution">Make sure to check all the text fields, once you save an organization you cannot make changes to again in future.</p>
+
+        <div class="row">
+          <button type="submit" class="btn  btn-round btn-primary btn-lg mr-auto ml-auto mt-5" >
+            <i class="material-icons">business</i> Save Organization
+          </button>
+        </div>
+
+      </form>
+  </div>
+</div>
+
+
+<footer class="footer footer-default" >
+  <div class="container-fluid">
+    <hr style="background: rgba(0,0,0,0.2);">
+    <div class="copyright caution">
+        &copy;2019 Copyright <a href="#">Weologix SAS.</a> All rights reserved. | <a href="#">Terms and Agreement</a> | <a href="#">Privacy Policy</a> | <a href="#">Contact Us</a>
+    </div>
+  </div>
+</footer>
